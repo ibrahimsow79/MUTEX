@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # Description : this scripts create an OU organization unit and attach a SCPP (Service Control Policy)
 # Version : v1.0
