@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Description : Create account for devoteam organisation
+# Description : Create account for Mutex organisation
 # Version : v1.2
 # - create lambda schedule RuleArn
 # - modified region to us-east-1 for billing
 # - changed billing alert step to 4
-# Author :  Silvère BEGIN
+# Author : Devoteam
 
 
 function usage
@@ -21,8 +21,8 @@ newAccName=""
 newAccEmail=""
 newProfile=""
 roleName="OrganizationAccountAccessRole"
-destinationOUname="DevoteamLabs_Basic"
-region="eu-west-1"
+destinationOUname="OU-ER"
+region="eu-west-3"
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -167,24 +167,17 @@ sns_topic_arn=$(aws sns create-topic \
 )
 echo sns_topic_arn=$sns_topic_arn
 
-# subscribe SNS
-printf "\nCreate subscribe SNS\n"
-aws sns subscribe \
-  --topic-arn "$sns_topic_arn" \
-  --protocol email \
-  --notification-endpoint "$newAccEmail" \
-  --profile $newProfile
-
 # subscribe SNS (2)
 printf "\nCreate subscribe SNS\n"
 aws sns subscribe \
   --topic-arn "$sns_topic_arn" \
   --protocol email \
-  --notification-endpoint "vincent.lam@devoteam.com" \
+  --region us-east-1 \
+  --notification-endpoint "ibrahim.sow@mutex-exterieur.fr" \
   --profile $newProfile
 
 # Create email alerts
-for (( amount=2; amount<=10; amount+=4 ))
+for (( amount=500; amount<=3000; amount+=500 ))
 do
   echo amount=$amount
   aws cloudwatch put-metric-alarm \
@@ -220,3 +213,4 @@ then
     printf "Moving Account Failed\n"
   fi
 fi
+
