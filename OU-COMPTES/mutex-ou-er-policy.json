@@ -1,17 +1,168 @@
-"Version": "2012-10-17",
+{
+    "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "Stmt1508169929000",
+            "Effect": "Allow",
             "Action": [
-                 "dynamodb:*","rds:*","ec2:*","s3:*","elasticmapreduce:*",
-                 "glacier:*","elasticloadbalancing:*", "cloudwatch:*",
-                 "importexport:*", "cloudformation:*", "redshift:*",
-                 "iam:*", "health:*", "config:*", "snowball:*",
-                 "trustedadvisor:*", "kms:*", "apigateway:*",
-                 "autoscaling:*", "directconnect:*",
-	         "execute-api:*", "sts:*"
-             ],
-             "Effect": "Allow",
-             "Resource": "*"
+                "aws-portal:ViewAccount",
+                "aws-portal:ViewBilling",
+                "aws-portal:ViewPaymentMethods",
+                "aws-portal:ViewUsage"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169936000",
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169944000",
+            "Effect": "Allow",
+            "Action": [
+                "cloudfront:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169954000",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169963000",
+            "Effect": "Allow",
+            "Action": [
+                "events:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169968000",
+            "Effect": "Allow",
+            "Action": [
+                "logs:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169976000",
+            "Effect": "Allow",
+            "Action": [
+                "cur:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169984000",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508169990000",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508170000000",
+            "Effect": "Allow",
+            "Action": [
+                "elasticbeanstalk:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508170012000",
+            "Effect": "Allow",
+            "Action": [
+                "iam:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508170023000",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508170039000",
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1513688913000",
+            "Effect": "Allow",
+            "Action": [
+                "sns:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508170057000",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1508170062000",
+            "Effect": "Allow",
+            "Action": [
+                "elasticloadbalancing:*"
+            ],
+            "Resource": [
+                "*"
+            ]
         }
     ]
 }
