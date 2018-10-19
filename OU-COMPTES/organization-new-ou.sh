@@ -69,3 +69,14 @@ RES=$(aws organizations create-organizational-unit --parent-id $parentIDOU --nam
 
 printf "\n Printing the ID of the new organization unit \n"
 echo $RES
+
+# Creating a policy a service control policy for my new organization unit
+printf "\n Creating a SCP for my new organization unit\n"
+PES=$(aws organizations create-policy --content file://mutex-ou-er-policy.json \
+--name AllowedServices --type SERVICE_CONTROL_POLICY \
+--description "Allowed Services Epargne Retraite" \
+--query 'Policy.PolicySummary.[Id]' --output text)
+
+# Attaching the policy that we have just created to the OU we ceated earlier
+printf "\n Attaching the policy that we have just created to the OU we ceated earlier \n"
+TES=$(aws organizations attach-policy --policy-id $PES --target-id $RES)
