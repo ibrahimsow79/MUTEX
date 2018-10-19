@@ -15,7 +15,7 @@ function usage
                                       [--region AWS_REGION]"
 }
 
-parentIdOU=""
+parentIDOU=""
 newOUName=""
 newProfile=""
 roleName="OrganizationAccountAccessRole"
@@ -47,4 +47,25 @@ then
   usage
   exit
 fi
+printf "\n Printing the Parent ID, the new OU Name et le profile \n"
 echo $parentIDOU , $newOUName, $newProfile
+
+# Get the parent ID (root)
+
+printf "\n Getting the ID of the Root Organization\n"
+
+parentIDOU=$(aws organizations list-roots --query 'Roots[0].[Id]' --output text)
+
+printf "\n Printing the Parent ID, the new OU Name et le profile de nouveau \n"
+
+echo $parentIDOU , $newOUName, $newProfile
+
+printf "\n Getting the ID of the Root Organization\n"
+
+# Creating the new organization unit
+printf "\n Creating the new organization\n"
+RES=$(aws organizations create-organizational-unit --parent-id $parentIDOU --name $newOUName \
+--query 'OrganizationalUnit.[Id]' --output text)
+
+printf "\n Printing the ID of the new organization unit \n"
+echo $RES
