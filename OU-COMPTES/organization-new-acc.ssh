@@ -21,7 +21,7 @@ newAccName=""
 newAccEmail=""
 newProfile=""
 roleName="OrganizationAccountAccessRole"
-destinationOUname="OU-ER"
+destinationOUname="ou-er"
 region="eu-west-3"
 
 while [ "$1" != "" ]; do
