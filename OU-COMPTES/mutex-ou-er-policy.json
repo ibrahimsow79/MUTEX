@@ -24,6 +24,26 @@
                 "*"
             ]
         },
+		{
+            "Sid": "Stmt1540285567000",
+            "Effect": "Allow",
+            "Action": [
+                "ecs:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1540285589000",
+            "Effect": "Allow",
+            "Action": [
+                "ecr:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
         {
             "Sid": "Stmt1508169944000",
             "Effect": "Allow",
@@ -149,6 +169,26 @@
             "Effect": "Allow",
             "Action": [
                 "autoscaling:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+		{
+            "Sid": "Stmt1540285694000",
+            "Effect": "Allow",
+            "Action": [
+                "rds:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+		{
+            "Sid": "Stmt1540285747000",
+            "Effect": "Allow",
+            "Action": [
+                "sqs:*"
             ],
             "Resource": [
                 "*"
